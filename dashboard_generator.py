@@ -60,3 +60,26 @@ for i in range(3):
         + str(to_usd(desc_new_list[i][1]))
     )
 
+# BAR CHART
+
+print("-----------------------")
+print("VISUALIZING THE DATA...")
+
+bar_x = [x[1] for x in desc_new_list]# what trying to append, for loop
+bar_y = [x[0] for x in desc_new_list]
+bar_x.reverse()
+bar_y.reverse()
+fig = go.Figure(
+    [
+        go.Bar(
+            y=bar_y, x=bar_x, orientation="h"
+        )
+    ]
+)
+
+fig.update_layout(
+    title="Monthly Product Sales",
+    xaxis_title="Total Sales",
+    yaxis_title="Products",
+) #> plotly library
+fig.show()
